@@ -1,0 +1,35 @@
+name = "questboard-worker"
+main = "src/index.js"
+compatibility_date = "2026-10-01"
+compatibility_flags = ["nodejs_compat"]
+
+# Cloudflare Workers AI (free daily allowance)
+[ai]
+binding = "AI"
+
+[vars]
+# Comma-separated list of sites allowed to call this Worker (localhost is always allowed for dev)
+ALLOWED_ORIGINS = "https://YOUR_DOMAIN,https://YOUR_GITHUB_USER.github.io"
+# "workers-ai" (Llama 3.3 70B on Cloudflare, free allowance) or "anthropic" (Claude, needs ANTHROPIC_API_KEY)
+PROVIDER = "workers-ai"
+MODEL = "claude-opus-5-5"
+# QuestBoard contract addresses — the Worker reads submissions from the chain before reviewing them.
+CONTRACT_677 = "0x9B90D7938e15715A8D9FEF90188c0Bb246763eD1"
+CONTRACT_968 = ""
+
+# AI reviews (keys "qb:<chainId>:<submissionId>", kept 180 days).
+# Create with: npx wrangler kv namespace create REVIEWS   → paste the id below.
+[[kv_namespaces]]
+binding = "REVIEWS"
+id = "REPLACE_WITH_REVIEWS_KV_ID"
+
+# Shared per-IP daily limit namespace (same one the other BOT Week Workers use). Keys prefixed "qb:".
+[[kv_namespaces]]
+binding = "RATE"
+id = "5f8367631f354434b90fe596f74c7ffb"
+
+# Secrets (never commit):
+#   npx wrangler secret put ANTHROPIC_API_KEY   (only for PROVIDER = "anthropic")
+
+[observability]
+enabled = false

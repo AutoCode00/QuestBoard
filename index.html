@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+  // Base path (GitHub Pages project sites live under /<repo>/) + restore a deep link sent here by 404.html as ?r=.
+  (function () {
+    var l = location, seg = l.hostname.endsWith('github.io') ? l.pathname.split('/')[1] : '';
+    window.__BASE = seg ? '/' + seg + '/' : '/';
+    var p = new URLSearchParams(l.search), r = p.get('r');
+    if (r != null) { p.delete('r'); var q = p.toString(); history.replaceState(null, '', window.__BASE + r.replace(/^\//, '') + (q ? '?' + q : '') + l.hash); }
+    document.write('<base href="' + window.__BASE + '">');
+  })();
+</script>
+<title>QuestBoard — Give every fan a quest worth sharing</title>
+<meta name="description" content="Turn your community into your marketing team. Post quests, let members submit proof, let AI check every submission, and keep points and the leaderboard on BOT Chain.">
+<meta name="theme-color" content="#1D3BD1">
+<meta property="og:title" content="QuestBoard — Give every fan a quest worth sharing.">
+<meta property="og:description" content="Community quests with AI-checked proof and an on-chain leaderboard on BOT Chain.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/favicon.svg">
+<link rel="preload" as="image" href="assets/hero.webp" type="image/webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400..800&family=Instrument+Serif:ital@0;1&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet" crossorigin="anonymous">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+<a class="sr-only" href="#view">Skip to content</a>
+<header class="nav-wrap" id="nav"></header>
+<div class="menu" id="menu" hidden></div>
+<main id="view" tabindex="-1"></main>
+<footer class="footer" id="footer"></footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/6.13.5/ethers.umd.min.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/SplitText.min.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/Flip.min.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/DrawSVGPlugin.min.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js" crossorigin="anonymous"></script>
+<script type="module" src="assets/main.js"></script>
+</body>
+</html>
